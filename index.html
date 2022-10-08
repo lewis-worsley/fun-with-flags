@@ -14,12 +14,14 @@
         <h1>Fun With Flags</h1>
         <div class="game-area">
             <div class="flag-area">
-                <img src="/assets/images/england.png" alt="Flag of England">
+                <img src="/assets/images/england.png" alt="Flag of England" id="flagImage">
 
             </div>
 
-            <div class="questions-area">
-                <p>Can you name the flag of this country?</p>
+            <div>
+                <h2>Which country flag is this?</h2>
+            </div>
+            <div class="option-area" id="question">
                 <button class="btn" id="option1" data-type="option1">Option 1</button>
                 <button class="btn" id="option2" data-type="option2">Option 2</button>
                 <button class="btn" id="option3" data-type="option3">Option 3</button>
@@ -27,7 +29,7 @@
 
         </div>
         <div class="score-area">
-            <h3>Games played <span id="games-played">0</span></h3>
+            <h3>Games played: <span id="games-played">0</span></h3>
             <p class="scores">Correct answers: <span id="correct">0</span></p>
             <p class="scores">Incorrect answers: <span id="incorrect">0</span></p>
 
