@@ -1,4 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
 .container {
     display: block;
     width: 100%;
+    text-align: center;
+}
+
+body {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #3a3a3a;
+    font-size: 16px;
+    background-color:cornsilk;
+}
+
+h1 {
+    padding: 40px 0 0 0;
+}
+
+h3 {
+    padding: 20px 0 0 0;
+}
+
+img {
+    width: 500px;
+    height: auto;
+    padding: 20px;
+    border-color: #3a3a3a;
+    border-width: 5px;
+    margin: 20px;
+}
+
+button {
+    padding: 15px;
+    margin: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: aqua;
 }
