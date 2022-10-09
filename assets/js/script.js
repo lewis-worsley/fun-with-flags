@@ -208,13 +208,18 @@ console.log(flags);
 const displayFlag = document.querySelector(".js-flag-img");
 const firstOption = document.querySelector(".js-option1");
 const secondOption = document.querySelector(".js-option2");
-const ThirdOption = document.querySelector(".js-option3");
+const thirdOption = document.querySelector(".js-option3");
 const playerCorrectScore = document.querySelector(".js-correct");
 const playerWrongScore = document.querySelector(".js-incorrect");
 
 const updateQuiz = (index) => {
     displayFlag.setAttribute('src', `/assets/images/${flags[index].fileName}`);
+    firstOption.innerHTML = flags[index].options[0];
+    secondOption.innerHTML = flags[index].options[1];
+    thirdOption.innerHTML = flags[index].options[2];
 }
+
+updateQuiz(0);
 
 
 
