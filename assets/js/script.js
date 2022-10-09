@@ -203,82 +203,111 @@ const flags = [
 
 ];
 
-console.log(flags)
+document.addEventListener("DOMContentLoaded", function() {
+    console.log(flags)
+    const displayFlag = document.querySelector(".js-flag-img");
+    const firstOption = document.querySelector(".js-option1");
+    const secondOption = document.querySelector(".js-option2");
+    const thirdOption = document.querySelector(".js-option3");
+    
+    let playerCorrectScore = document.querySelector(".js-correct");
+    let playerWrongScore = document.querySelector(".js-incorrect");
+    let roundsPlayed = document.querySelector(".js-round-played");
+    let currentCorrectAnswer = '';
+    
+    const updateQuiz = () => {
+        const index = Math.floor(Math.random() * 20);
 
-const displayFlag = document.querySelector(".js-flag-img");
-const firstOption = document.querySelector(".js-option1");
-const secondOption = document.querySelector(".js-option2");
-const thirdOption = document.querySelector(".js-option3");
+        displayFlag.setAttribute('src', `assets/images/${flags[index].fileName}`);
+        displayFlag.setAttribute('alt', `Flag of ${flags[index].name}`);
 
-let playerCorrectScore = document.querySelector(".js-correct");
-let playerWrongScore = document.querySelector(".js-incorrect");
-let roundsPlayed = document.querySelector(".js-round-played");
-let currentCorrectAnswer = '';
+        // update first ption
+        firstOption.innerHTML = flags[index].options[0];
+        firstOption.setAttribute('aria-label', `Option 1: ${flags[index].name}`);
+       
+        //
+        secondOption.innerHTML = flags[index].options[1];
+        secondOption.setAttribute('aria-label', `Option 2: ${flags[index].name}`);
 
-const updateQuiz = () => {
-    const index = Math.floor(Math.random() * 20);
-    displayFlag.setAttribute('src', `/assets/images/${flags[index].fileName}`);
-    firstOption.innerHTML = flags[index].options[0];
-    secondOption.innerHTML = flags[index].options[1];
-    thirdOption.innerHTML = flags[index].options[2];
-    currentCorrectAnswer = flags[index].correctAnswer;
+        thirdOption.innerHTML = flags[index].options[2];
+        thirdOption.setAttribute('aria-label', `Option 3: ${flags[index].name}`);
 
-    console.log(currentCorrectAnswer);
-}
-
-const incrementRound = () => {
-    roundsPlayed.innerHTML = parseInt(roundsPlayed.innerHTML) + 1;
-}
-
-const incrementCorrectScore = () => {
-    playerCorrectScore.innerHTML = parseInt(playerCorrectScore.innerHTML) + 1;
-}
-
-const incrementWrongScore = () => {
-    playerWrongScore.innerHTML = parseInt(playerWrongScore.innerHTML) + 1;
-}
-
-firstOption.addEventListener('click', () => {
-    const option = firstOption.innerHTML;
-    if (option === currentCorrectAnswer) {
-        alert('You are right!!!')
-        incrementCorrectScore();
-    } else {
-        alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
-        incrementWrongScore();
+        currentCorrectAnswer = flags[index].correctAnswer;
+        console.log(currentCorrectAnswer);
     }
-    updateQuiz();
-    incrementRound();
-});
-
-secondOption.addEventListener('click', () => {
-    const option = secondOption.innerHTML;
-    if (option === currentCorrectAnswer) {
-        alert('You are right!!!')
-        incrementCorrectScore();
-    } else {
-        alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
-        incrementWrongScore();
+    
+    const incrementRound = () => {
+        roundsPlayed.innerHTML = parseInt(roundsPlayed.innerHTML) + 1;
     }
-    updateQuiz();
-    incrementRound();
-});
 
-thirdOption.addEventListener('click', () => {
-    const option = thirdOption.innerHTML;
-    if (option === currentCorrectAnswer) {
-        alert('You are right!!!')
-        incrementCorrectScore();
-    } else {
-        alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
-        incrementWrongScore();
+    const incrementCorrectScore = () => {
+        playerCorrectScore.innerHTML = parseInt(playerCorrectScore.innerHTML) + 1;
     }
+    
+    const incrementWrongScore = () => {
+        playerWrongScore.innerHTML = parseInt(playerWrongScore.innerHTML) + 1;
+    }
+
+    document.onkeypress = function (e) {
+        e = e || window.event;
+
+        const userInput = e.keyCode;
+        if (userInput === 49) {
+            firstOption.click();
+            // simulate click for option 1
+        }
+        if (userInput === 50) {
+            secondOption.click();
+            // simulate click for option 2
+        }
+        if (userInput === 51) {
+            thirdOption.click();
+            // simulate click for option 3
+        }
+        console.log(e.keyCode);
+        
+    };
+
+    firstOption.addEventListener('click', () => {
+        const option = firstOption.innerHTML;
+        if (option === currentCorrectAnswer) {
+            alert('You are right!!!')
+            incrementCorrectScore();
+        } else {
+            alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
+            incrementWrongScore();
+        }
+        updateQuiz();
+        incrementRound();
+    });
+    
+    secondOption.addEventListener('click', () => {
+        const option = secondOption.innerHTML;
+        if (option === currentCorrectAnswer) {
+            alert('You are right!!!')
+            incrementCorrectScore();
+        } else {
+            alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
+            incrementWrongScore();
+        }
+        updateQuiz();
+        incrementRound();
+    });
+    
+    thirdOption.addEventListener('click', () => {
+        const option = thirdOption.innerHTML;
+        if (option === currentCorrectAnswer) {
+            alert('You are right!!!')
+            incrementCorrectScore();
+        } else {
+            alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
+            incrementWrongScore();
+        }
+        updateQuiz();
+        incrementRound();
+    });
+    
     updateQuiz();
-    incrementRound();
 });
-
-updateQuiz();
-
-
 
 

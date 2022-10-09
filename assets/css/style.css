@@ -41,9 +41,14 @@ p {
 }
 
 img {
-    width: 500px;
-    height: auto;
-    margin: 20px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 button {
@@ -57,3 +62,10 @@ button:hover {
     background-color: aqua;
 }
 
+.flag-area {
+    width: 628px;
+    height: 322px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    position: relative;
+}
