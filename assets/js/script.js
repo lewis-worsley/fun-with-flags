@@ -203,7 +203,6 @@ const flags = [
 
 ];
 
-
 /**
  * Wait for the DOM to finish loading before running the game
  * Get the button elements and add event listeners to them
@@ -217,33 +216,43 @@ document.addEventListener("DOMContentLoaded", function() {
     const secondOption = document.querySelector(".js-option2");
     const thirdOption = document.querySelector(".js-option3");
     
-    
     let playerCorrectScore = document.querySelector(".js-correct");
     let playerWrongScore = document.querySelector(".js-incorrect");
     let roundsPlayed = document.querySelector(".js-round-played");
     let currentCorrectAnswer = '';
     
     const updateQuiz = function() {
+
+        // There are 20 objects in the array
         const randomIndex = Math.floor(Math.random() * 20);
 
         displayFlag.setAttribute('src', `assets/images/${flags[randomIndex].fileName}`);
         displayFlag.setAttribute('alt', `Flag of ${flags[randomIndex].name}`);
 
-        // update first option
+        /**
+         * The options below are connected to the three buttons in the index.html
+         */
+
+        // Update first option
         firstOption.innerHTML = flags[randomIndex].options[0];
         firstOption.setAttribute('aria-label', `Option 1: ${flags[randomIndex].name}`);
        
-        // update second option
+        // Update second option
         secondOption.innerHTML = flags[randomIndex].options[1];
         secondOption.setAttribute('aria-label', `Option 2: ${flags[randomIndex].name}`);
 
-        // update third option
+        // Update third option
         thirdOption.innerHTML = flags[randomIndex].options[2];
         thirdOption.setAttribute('aria-label', `Option 3: ${flags[randomIndex].name}`);
 
         currentCorrectAnswer = flags[randomIndex].correctAnswer;
         console.log(currentCorrectAnswer);
     }
+
+    /**
+     * Update games played and the user's score:
+     * both correct and wrong answers
+     */
     
     const incrementRound = function() {
         roundsPlayed.innerHTML = parseInt(roundsPlayed.innerHTML) + 1;
@@ -258,27 +267,36 @@ document.addEventListener("DOMContentLoaded", function() {
         playerWrongScore.innerHTML = parseInt(playerWrongScore.innerHTML) + 1;
     }
 
+    /**
+     * For accessibility, the user can press 1 (keypress = 49), 2 (50) or 3 (51), instead of the buttons.
+     * The numbers are linked to their respective buttons
+     */
+
     document.onkeypress = function (e) {
         e = e || window.event;
 
         const userInput = e.keyCode;
         if (userInput === 49) {
             firstOption.click();
-            // simulate click for option 1
+            // Simulate click for option 1
         }
         if (userInput === 50) {
             secondOption.click();
-            // simulate click for option 2
+            // Simulate click for option 2
         }
         if (userInput === 51) {
             thirdOption.click();
-            // simulate click for option 3
+            // Simulate click for option 3
         }
         console.log(e.keyCode);
         
-    }; 
+    };
 
-    firstOption.addEventListener('click', () => {
+    /**
+     * Event listeners for the buttons
+     */
+
+    firstOption.addEventListener('click', function() {
         const option = firstOption.innerHTML;
         if (option === currentCorrectAnswer) {
             firstOption.style.backgroundColor = "green";
@@ -289,7 +307,7 @@ document.addEventListener("DOMContentLoaded", function() {
             incrementWrongScore(option);
         }
 
-        setTimeout(() => {
+        setTimeout( function() {
             updateQuiz();
             firstOption.style.backgroundColor = "#D3D3D3";
             incrementRound();
@@ -297,7 +315,7 @@ document.addEventListener("DOMContentLoaded", function() {
        
     });
     
-    secondOption.addEventListener('click', () => {
+    secondOption.addEventListener('click', function() {
         const option = secondOption.innerHTML;
         if (option === currentCorrectAnswer) {
             secondOption.style.backgroundColor = "green";
@@ -306,14 +324,14 @@ document.addEventListener("DOMContentLoaded", function() {
             secondOption.style.backgroundColor = "red";
             incrementWrongScore(option);
         }
-        setTimeout(() => {
+        setTimeout( function() {
             updateQuiz();
             secondOption.style.backgroundColor = "#D3D3D3";
             incrementRound();
         }, 500);
     });
     
-    thirdOption.addEventListener('click', () => {
+    thirdOption.addEventListener('click', function() {
         const option = thirdOption.innerHTML;
         if (option === currentCorrectAnswer) {
             thirdOption.style.backgroundColor = "green";
@@ -322,15 +340,13 @@ document.addEventListener("DOMContentLoaded", function() {
             thirdOption.style.backgroundColor = "red";
             incrementWrongScore(option);
         }
-        setTimeout(() => {
+        setTimeout( function() {
             updateQuiz();
             thirdOption.style.backgroundColor = "#D3D3D3";
             incrementRound();
         }, 500);
     });
 
-    
-    
     updateQuiz();
 });
 
