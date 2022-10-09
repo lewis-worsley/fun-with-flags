@@ -2,7 +2,7 @@ const flags = [
 
     {
         name: 'Argentina',
-        fileName: 'argentina.png',
+        fileName: 'argentina.jpg',
         correctAnswer: 'Argentina',
         options: [
             'Argentina',
@@ -12,7 +12,7 @@ const flags = [
     },
     {
         name: 'Brazil',
-        fileName: 'brazil.png',
+        fileName: 'brazil.jpg',
         correctAnswer: 'Brazil',
         options: [
             'England',
@@ -22,7 +22,7 @@ const flags = [
     },
     {
         name: 'Cambodia',
-        fileName: 'cambodia.png',
+        fileName: 'cambodia.jpg',
         correctAnswer: 'Cambodia',
         options: [
             'Vietnam',
@@ -32,7 +32,7 @@ const flags = [
     },
     {
         name: 'Cameroon',
-        fileName: 'cameroon.png',
+        fileName: 'cameroon.jpg',
         correctAnswer: 'Cameroon',
         options: [
             'Senegal',
@@ -42,7 +42,7 @@ const flags = [
     },
     {
         name: 'Croatia',
-        fileName: 'croatia.png',
+        fileName: 'croatia.jpg',
         correctAnswer: 'Croatia',
         options: [
             'Croatia',
@@ -52,7 +52,7 @@ const flags = [
     },
     {
         name: 'Cuba',
-        fileName: 'cuba.png',
+        fileName: 'cuba.jpg',
         correctAnswer: 'Cuba',
         options: [
             'Barbados',
@@ -62,7 +62,7 @@ const flags = [
     },
     {
         name: 'Egypt',
-        fileName: 'egypt.png',
+        fileName: 'egypt.jpg',
         correctAnswer: 'Egypt',
         options: [
             'Egypt',
@@ -72,7 +72,7 @@ const flags = [
     },
     {
         name: 'England',
-        fileName: 'england.png',
+        fileName: 'england.jpg',
         correctAnswer: 'England',
         options: [
             'England',
@@ -82,7 +82,7 @@ const flags = [
     },
     {
         name: 'Israel',
-        fileName: 'israel.png',
+        fileName: 'israel.jpg',
         correctAnswer: 'Israel',
         options: [
             'Qatar',
@@ -92,7 +92,7 @@ const flags = [
     },
     {
         name: 'Jamaica',
-        fileName: 'jamaica.png',
+        fileName: 'jamaica.jpg',
         correctAnswer: 'Jamaica',
         options: [
             'South Africa',
@@ -102,7 +102,7 @@ const flags = [
     },
     {
         name: 'Japan',
-        fileName: 'japan.png',
+        fileName: 'japan.jpg',
         correctAnswer: 'Japan',
         options: [
             'Japan',
@@ -112,7 +112,7 @@ const flags = [
     },
     {
         name: 'Mexico',
-        fileName: 'mexico.png',
+        fileName: 'mexico.jpg',
         correctAnswer: 'Mexico',
         options: [
             'Mexico',
@@ -132,7 +132,7 @@ const flags = [
     },
     {
         name: 'Namibia',
-        fileName: 'namibia.png',
+        fileName: 'namibia.jpg',
         correctAnswer: 'Namibia',
         options: [
             'Nigeria',
@@ -142,7 +142,7 @@ const flags = [
     },
     {
         name: 'Norway',
-        fileName: 'norway.png',
+        fileName: 'norway.jpg',
         correctAnswer: 'Norway',
         options: [
             'Sweden',
@@ -152,7 +152,7 @@ const flags = [
     },
     {
         name: 'Singapore',
-        fileName: 'singapore.png',
+        fileName: 'singapore.jpg',
         correctAnswer: 'Singapore',
         options: [
             'Singapore',
@@ -162,7 +162,7 @@ const flags = [
     },
     {
         name: 'Spain',
-        fileName: 'spain.png',
+        fileName: 'spain.jpg',
         correctAnswer: 'Spain',
         options: [
             'Italy',
@@ -172,7 +172,7 @@ const flags = [
     },
     {
         name: 'Switzerland',
-        fileName: 'switzerland.png',
+        fileName: 'switzerland.jpg',
         correctAnswer: 'Switzerland',
         options: [
             'Greece',
@@ -182,7 +182,7 @@ const flags = [
     },
     {
         name: 'Thailand',
-        fileName: 'thailand.png',
+        fileName: 'thailand.jpg',
         correctAnswer: 'Thailand',
         options: [
             'Indonesia',
@@ -192,7 +192,7 @@ const flags = [
     },
     {
         name: 'Tunisia',
-        fileName: 'tunisia.png',
+        fileName: 'tunisia.jpg',
         correctAnswer: 'Tunisia',
         options: [
             'Turkey',
@@ -250,16 +250,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     const incrementCorrectScore = () => {
-        // alert('You are right!!!')
         playerCorrectScore.innerHTML = parseInt(playerCorrectScore.innerHTML) + 1;
     }
     
     const incrementWrongScore = (option) => {
-        // alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
+        alert(`You selected ${option} which is wrong! The correct answer is ${currentCorrectAnswer}`)
         playerWrongScore.innerHTML = parseInt(playerWrongScore.innerHTML) + 1;
     }
 
-    document.keydod = function (e) {
+    document.onkeypress = function (e) {
         e = e || window.event;
 
         const userInput = e.keyCode;
@@ -277,7 +276,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         console.log(e.keyCode);
         
-    };
+    }; 
 
     firstOption.addEventListener('click', () => {
         const option = firstOption.innerHTML;
