@@ -204,9 +204,18 @@ const flags = [
 ];
 
 console.log(flags);
-const displayFlag = document.getElementById("flagImage");
-const firstOption = document.getElementById("option1");
-const secondOption = document.getElementById("option2");
-const ThirdOption = document.getElementById("option3");
-const playerCorrectScore = document.getElementById("correct");
-const playerWrongScore = document.getElementById("incorrect");
+
+const displayFlag = document.querySelector(".js-flag-img");
+const firstOption = document.querySelector(".js-option1");
+const secondOption = document.querySelector(".js-option2");
+const ThirdOption = document.querySelector(".js-option3");
+const playerCorrectScore = document.querySelector(".js-correct");
+const playerWrongScore = document.querySelector(".js-incorrect");
+
+const updateQuiz = (index) => {
+    displayFlag.setAttribute('src', `/assets/images/${flags[index].fileName}`);
+}
+
+
+
+

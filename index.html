@@ -14,7 +14,7 @@
         <h1>Fun With Flags</h1>
         <div class="game-area">
             <div class="flag-area">
-                <img src="/assets/images/england.png" alt="Flag of England" id="flagImage">
+                <img src="/assets/images/england.png" alt="Flag of England" class="js-flag-img" id="flagImage">
 
             </div>
 
@@ -22,16 +22,16 @@
                 <h2>Which country flag is this?</h2>
             </div>
             <div class="option-area" id="question">
-                <button class="btn" id="option1" data-type="option1">Option 1</button>
-                <button class="btn" id="option2" data-type="option2">Option 2</button>
-                <button class="btn" id="option3" data-type="option3">Option 3</button>
+                <button class="js-option1 btn" data-type="option1">Option 1</button>
+                <button class="js-option2 btn" data-type="option2">Option 2</button>
+                <button class="js-option3 btn" data-type="option3">Option 3</button>
             </div>
 
         </div>
         <div class="score-area">
             <h3>Games played: <span id="games-played">0</span></h3>
-            <p class="scores">Correct answers: <span id="correct">0</span></p>
-            <p class="scores">Incorrect answers: <span id="incorrect">0</span></p>
+            <p class="js-correct scores">Correct answers: <span id="correct">0</span></p>
+            <p class="js-incorrect scores">Incorrect answers: <span id="incorrect">0</span></p>
 
         </div>
     </section>
