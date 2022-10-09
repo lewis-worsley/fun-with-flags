@@ -165,8 +165,8 @@ const flags = [
         fileName: 'spain.png',
         correctAnswer: 'Spain',
         options: [
-            'Singapore',
-            'Malaysia',
+            'Italy',
+            'Portugal',
             'Spain'
         ]
     },
@@ -176,7 +176,7 @@ const flags = [
         correctAnswer: 'Switzerland',
         options: [
             'Greece',
-            'Portugal',
+            'France',
             'Switzerland'
         ]
     },
@@ -203,12 +203,20 @@ const flags = [
 
 ];
 
+
+/**
+ * Wait for the DOM to finish loading before running the game
+ * Get the button elements and add event listeners to them
+ */
+
 document.addEventListener("DOMContentLoaded", function() {
+    
     console.log(flags)
     const displayFlag = document.querySelector(".js-flag-img");
     const firstOption = document.querySelector(".js-option1");
     const secondOption = document.querySelector(".js-option2");
     const thirdOption = document.querySelector(".js-option3");
+    
     
     let playerCorrectScore = document.querySelector(".js-correct");
     let playerWrongScore = document.querySelector(".js-incorrect");
@@ -216,23 +224,24 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentCorrectAnswer = '';
     
     const updateQuiz = () => {
-        const index = Math.floor(Math.random() * 20);
+        const randomIndex = Math.floor(Math.random() * 20);
 
-        displayFlag.setAttribute('src', `assets/images/${flags[index].fileName}`);
-        displayFlag.setAttribute('alt', `Flag of ${flags[index].name}`);
+        displayFlag.setAttribute('src', `assets/images/${flags[randomIndex].fileName}`);
+        displayFlag.setAttribute('alt', `Flag of ${flags[randomIndex].name}`);
 
-        // update first ption
-        firstOption.innerHTML = flags[index].options[0];
-        firstOption.setAttribute('aria-label', `Option 1: ${flags[index].name}`);
+        // update first option
+        firstOption.innerHTML = flags[randomIndex].options[0];
+        firstOption.setAttribute('aria-label', `Option 1: ${flags[randomIndex].name}`);
        
-        //
-        secondOption.innerHTML = flags[index].options[1];
-        secondOption.setAttribute('aria-label', `Option 2: ${flags[index].name}`);
+        // update second option
+        secondOption.innerHTML = flags[randomIndex].options[1];
+        secondOption.setAttribute('aria-label', `Option 2: ${flags[randomIndex].name}`);
 
-        thirdOption.innerHTML = flags[index].options[2];
-        thirdOption.setAttribute('aria-label', `Option 3: ${flags[index].name}`);
+        // update third option
+        thirdOption.innerHTML = flags[randomIndex].options[2];
+        thirdOption.setAttribute('aria-label', `Option 3: ${flags[randomIndex].name}`);
 
-        currentCorrectAnswer = flags[index].correctAnswer;
+        currentCorrectAnswer = flags[randomIndex].correctAnswer;
         console.log(currentCorrectAnswer);
     }
     
@@ -241,14 +250,16 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     const incrementCorrectScore = () => {
+        // alert('You are right!!!')
         playerCorrectScore.innerHTML = parseInt(playerCorrectScore.innerHTML) + 1;
     }
     
-    const incrementWrongScore = () => {
+    const incrementWrongScore = (option) => {
+        // alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
         playerWrongScore.innerHTML = parseInt(playerWrongScore.innerHTML) + 1;
     }
 
-    document.onkeypress = function (e) {
+    document.keydod = function (e) {
         e = e || window.event;
 
         const userInput = e.keyCode;
@@ -271,40 +282,52 @@ document.addEventListener("DOMContentLoaded", function() {
     firstOption.addEventListener('click', () => {
         const option = firstOption.innerHTML;
         if (option === currentCorrectAnswer) {
-            alert('You are right!!!')
+            firstOption.style.backgroundColor = "green";
             incrementCorrectScore();
+            
         } else {
-            alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
-            incrementWrongScore();
+            firstOption.style.backgroundColor = "red";
+            incrementWrongScore(option);
         }
-        updateQuiz();
-        incrementRound();
+
+        setTimeout(() => {
+            updateQuiz();
+            firstOption.style.backgroundColor = "darkgray";
+            incrementRound();
+        }, 500);
+       
     });
     
     secondOption.addEventListener('click', () => {
         const option = secondOption.innerHTML;
         if (option === currentCorrectAnswer) {
-            alert('You are right!!!')
+            secondOption.style.backgroundColor = "green";
             incrementCorrectScore();
         } else {
-            alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
-            incrementWrongScore();
+            secondOption.style.backgroundColor = "red";
+            incrementWrongScore(option);
         }
-        updateQuiz();
-        incrementRound();
+        setTimeout(() => {
+            updateQuiz();
+            secondOption.style.backgroundColor = "darkgray";
+            incrementRound();
+        }, 500);
     });
     
     thirdOption.addEventListener('click', () => {
         const option = thirdOption.innerHTML;
         if (option === currentCorrectAnswer) {
-            alert('You are right!!!')
+            thirdOption.style.backgroundColor = "green";
             incrementCorrectScore();
         } else {
-            alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
-            incrementWrongScore();
+            thirdOption.style.backgroundColor = "red";
+            incrementWrongScore(option);
         }
-        updateQuiz();
-        incrementRound();
+        setTimeout(() => {
+            updateQuiz();
+            thirdOption.style.backgroundColor = "darkgray";
+            incrementRound();
+        }, 500);
     });
     
     updateQuiz();
