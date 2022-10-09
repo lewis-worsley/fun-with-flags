@@ -122,7 +122,7 @@ const flags = [
     },
     {
         name: 'Morocco',
-        fileName: 'morocco.png',
+        fileName: 'morocco.jpg',
         correctAnswer: 'Morocco',
         options: [
             'UAE',
@@ -203,7 +203,7 @@ const flags = [
 
 ];
 
-console.log(flags);
+console.log(flags)
 
 const displayFlag = document.querySelector(".js-flag-img");
 const firstOption = document.querySelector(".js-option1");
@@ -212,14 +212,50 @@ const thirdOption = document.querySelector(".js-option3");
 const playerCorrectScore = document.querySelector(".js-correct");
 const playerWrongScore = document.querySelector(".js-incorrect");
 
-const updateQuiz = (index) => {
+let currentCorrectAnswer = '';
+
+const updateQuiz = () => {
+    const index = Math.floor(Math.random() * 20);
     displayFlag.setAttribute('src', `/assets/images/${flags[index].fileName}`);
     firstOption.innerHTML = flags[index].options[0];
     secondOption.innerHTML = flags[index].options[1];
     thirdOption.innerHTML = flags[index].options[2];
+    currentCorrectAnswer = flags[index].correctAnswer;
+
+    console.log(currentCorrectAnswer);
 }
 
-updateQuiz(0);
+firstOption.addEventListener('click', () => {
+    const option = firstOption.innerHTML;
+    if (option === currentCorrectAnswer) {
+        alert('You are right!!!')
+    } else {
+        alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
+    }
+    updateQuiz();
+});
+
+secondOption.addEventListener('click', () => {
+    const option = secondOption.innerHTML;
+    if (option === currentCorrectAnswer) {
+        alert('You are right!!!')
+    } else {
+        alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
+    }
+    updateQuiz();
+});
+
+thirdOption.addEventListener('click', () => {
+    const option = thirdOption.innerHTML;
+    if (option === currentCorrectAnswer) {
+        alert('You are right!!!')
+    } else {
+        alert(`You selected ${option} which is wrong!!! The correct answer is ${currentCorrectAnswer}`)
+    }
+    updateQuiz();
+});
+
+updateQuiz();
 
 
 
