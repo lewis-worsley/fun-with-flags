@@ -15,26 +15,25 @@
         <div class="game-area">
             <div class="flag-area">
                 <img class="js-flag-img" id="flagImage">
-
+                <div>
+                    <h2>Which country flag is this?</h2>
+                    <p>This game can be played by using the numbers 1, 2, and 3 on the keyboard. </p>
+                    <div class="option-area" id="question">
+                        <button class="js-option1 btn" data-type="option1">Option 1</button>
+                        <button class="js-option2 btn" data-type="option2">Option 2</button>
+                        <button class="js-option3 btn" data-type="option3">Option 3</button>
+                    </div>
+                </div>
+                <div class="score-area">
+                    <h3>Rounds played: <span class="js-round-played">0</span></h3>
+                    <p class="scores">Correct answers: <span class="js-correct">0</span></p>
+                    <p class="scores">Incorrect answers: <span class="js-incorrect">0</span></p>
+                </div> 
             </div>
-
-            <div>
-                <h2>Which country flag is this?</h2>
-                <p>Press 1, 2 or 3 for buttons 1, 2 and 3</p>
-            </div>
-            <div class="option-area" id="question">
-                <button class="js-option1 btn" data-type="option1">Option 1</button>
-                <button class="js-option2 btn" data-type="option2">Option 2</button>
-                <button class="js-option3 btn" data-type="option3">Option 3</button>
-            </div>
+                   
 
         </div>
-        <div class="score-area">
-            <h3>Rounds played: <span class="js-round-played">0</span></h3>
-            <p class="scores">Correct answers: <span class="js-correct">0</span></p>
-            <p class="scores">Incorrect answers: <span class="js-incorrect">0</span></p>
-
-        </div>
+        
     </section>
 
     <script src="assets/js/script.js"></script>

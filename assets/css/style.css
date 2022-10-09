@@ -24,7 +24,7 @@ h1 {
 }
 
 h2, h3 {
-    padding: 20px 0 20px 0;
+    padding: 20px 0 10px 0;
 }
 
 h2 {
@@ -41,7 +41,6 @@ p {
 }
 
 img {
-    position: absolute;
     left: 0;
     bottom: 0;
     right: 0;
@@ -53,14 +52,13 @@ img {
 
 button {
     padding: 15px 20px;
-    margin: 10px 20px;
+    margin: 25px 20px 10px;
     font-size: 1.3rem;
-    background-color: darkgray;
+    background-color: #D3D3D3;
 }
 
 button:hover {
     cursor: pointer;
-    background-color: aqua;
 }
 
 .flag-area {
@@ -70,3 +68,25 @@ button:hover {
     padding-bottom: 20px;
     position: relative;
 }
+
+p > .js-correct {
+    color: green;
+    font-weight: bold;
+}
+
+p > .js-incorrect {
+    color: red;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 719px) {
+      
+      img {
+        height: auto;
+      }
+
+      .flag-area {
+        width: 85%;
+      }
+}
+

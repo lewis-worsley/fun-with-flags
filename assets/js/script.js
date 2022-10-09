@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let roundsPlayed = document.querySelector(".js-round-played");
     let currentCorrectAnswer = '';
     
-    const updateQuiz = () => {
+    const updateQuiz = function() {
         const randomIndex = Math.floor(Math.random() * 20);
 
         displayFlag.setAttribute('src', `assets/images/${flags[randomIndex].fileName}`);
@@ -245,15 +245,15 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(currentCorrectAnswer);
     }
     
-    const incrementRound = () => {
+    const incrementRound = function() {
         roundsPlayed.innerHTML = parseInt(roundsPlayed.innerHTML) + 1;
     }
 
-    const incrementCorrectScore = () => {
+    const incrementCorrectScore = function() {
         playerCorrectScore.innerHTML = parseInt(playerCorrectScore.innerHTML) + 1;
     }
     
-    const incrementWrongScore = (option) => {
+    const incrementWrongScore = function(option) {
         alert(`You selected ${option} which is wrong! The correct answer is ${currentCorrectAnswer}`)
         playerWrongScore.innerHTML = parseInt(playerWrongScore.innerHTML) + 1;
     }
@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         setTimeout(() => {
             updateQuiz();
-            firstOption.style.backgroundColor = "darkgray";
+            firstOption.style.backgroundColor = "#D3D3D3";
             incrementRound();
         }, 500);
        
@@ -308,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         setTimeout(() => {
             updateQuiz();
-            secondOption.style.backgroundColor = "darkgray";
+            secondOption.style.backgroundColor = "#D3D3D3";
             incrementRound();
         }, 500);
     });
@@ -324,10 +324,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         setTimeout(() => {
             updateQuiz();
-            thirdOption.style.backgroundColor = "darkgray";
+            thirdOption.style.backgroundColor = "#D3D3D3";
             incrementRound();
         }, 500);
     });
+
+    
     
     updateQuiz();
 });
