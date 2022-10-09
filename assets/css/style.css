@@ -59,6 +59,11 @@ button {
 
 button:hover {
     cursor: pointer;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    padding: 13px 18px;
+
 }
 
 .flag-area {
