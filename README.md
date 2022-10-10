@@ -137,9 +137,13 @@ Errors discovered:<br>
 
 <br>
 
-- Two errors have been discovered: no src or alt attributes included in the img tag. However, the two attributes are updated through a function in the JS file which pulls information from the objects in the Flags array to populate the src and alt attributes. For example, see screenshot below.
+- Two errors have been discovered: no src or alt attributes included in the img tag. The reason why these two attributes weren't included, because they're updated through a function in the JS file which pulls information from the objects in the Flags array to populate the src and alt attributes. For example, see screenshot below.
 
 <img src="assets/readme-images/html-errors-addressed.jpg"><br>
+
+- However, to remove the errors, I've included both src and alt attributes to the img tag. Now, no errors are reported.
+
+<img src="assets/readme-images/html-errors-none.jpg"><br>
 
 <br>
 
@@ -212,7 +216,7 @@ To help bring this project to life, the following deserve recognition:
 ### Content
 <hr>
 
-The JS code to detect keypresses (1, 2, and 3) https://stackoverflow.com/questions/16089421/how-do-i-detect-keypresses-in-javascript
+- The JS code to detect keypresses (1, 2, and 3) https://stackoverflow.com/questions/16089421/how-do-i-detect-keypresses-in-javascript
 
 - The JS code to add a waiting time between rounds in the game https://www.w3schools.com/jsref/met_win_settimeout.asp
 
