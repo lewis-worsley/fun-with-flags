@@ -210,7 +210,7 @@ const flags = [
 
 document.addEventListener("DOMContentLoaded", function() {
     
-    console.log(flags)
+    console.log(flags);
     const displayFlag = document.querySelector(".js-flag-img");
     const firstOption = document.querySelector(".js-option1");
     const secondOption = document.querySelector(".js-option2");
@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         currentCorrectAnswer = flags[randomIndex].correctAnswer;
         console.log(currentCorrectAnswer);
-    }
+    };
 
     /**
      * Update games played and the user's score:
@@ -256,16 +256,16 @@ document.addEventListener("DOMContentLoaded", function() {
     
     const incrementRound = function() {
         roundsPlayed.innerHTML = parseInt(roundsPlayed.innerHTML) + 1;
-    }
+    };
 
     const incrementCorrectScore = function() {
         playerCorrectScore.innerHTML = parseInt(playerCorrectScore.innerHTML) + 1;
-    }
+    };
     
     const incrementWrongScore = function(option) {
-        alert(`You selected ${option} which is wrong! The correct answer is ${currentCorrectAnswer}`)
+        alert(`You selected ${option} which is wrong! The correct answer is ${currentCorrectAnswer}`);
         playerWrongScore.innerHTML = parseInt(playerWrongScore.innerHTML) + 1;
-    }
+    };
 
     /**
      * For accessibility, the user can press 1 (keypress = 49), 2 (50) or 3 (51), instead of the buttons.

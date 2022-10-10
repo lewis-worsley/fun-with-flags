@@ -11,19 +11,19 @@ Fun With Flags is a site that uses vanilla JavaScript to educate users on which 
 ## Contents
 <hr>
 
-[Features](https://github.com/lewis-worsley/digital-media-agency/blob/main/README.md#features)
+[Features](https://github.com/lewis-worsley/fun-with-flags/blob/main/README.md#features)
 
-[Testing](https://github.com/lewis-worsley/digital-media-agency/blob/main/README.md#testing)
+[Testing](https://github.com/lewis-worsley/fun-with-flags/blob/main/README.md#testing)
 
-[Deployment](https://github.com/lewis-worsley/digital-media-agency/blob/main/README.md#deployment)
+[Deployment](https://github.com/lewis-worsley/fun-with-flags/blob/main/README.md#deployment)
 
-[Languages](https://github.com/lewis-worsley/digital-media-agency/blob/main/README.md#languages)
+[Languages](https://github.com/lewis-worsley/fun-with-flags/blob/main/README.md#languages)
 
-[Software](https://github.com/lewis-worsley/digital-media-agency/blob/main/README.md#software)
+[Software](https://github.com/lewis-worsley/fun-with-flags/blob/main/README.md#software)
 
-[Media](https://github.com/lewis-worsley/digital-media-agency/blob/main/README.md#media)
+[Media](https://github.com/lewis-worsley/fun-with-flags/blob/main/README.md#media)
 
-[Credits](https://github.com/lewis-worsley/digital-media-agency/blob/main/README.md#credits)
+[Credits](https://github.com/lewis-worsley/fun-with-flags/blob/main/README.md#credits)
 
 <br>
 
@@ -60,7 +60,8 @@ To evaluate the website, the structure can be split into four sections:
 
 - The user is presented with three options. One of the options is correct. The user can either click one of the buttons or press 1 (connected to the left button), 2 (middle), or 3 (right). This means the user does not need to use a mouse to play the game.
 - If the user guesses correctly, the background color of the box will change to green for 1.5 seconds before returning to its default state ready for the next round.
-- If the user guesses wrongly, a pop-up will make it known to the user and inform him/her of the correct answer. The background color of the box will change to red for 1.5 seconds before returning to its default state ready for the next round.
+- If the user guesses wrongly, a pop-up will make it known to the user and inform him/her of the correct answer. The background color of the box will change to red for 0.5 seconds before returning to its default state ready for the next round.
+- The text underneath the heading is hidden when media screen is 719px and less because it's likely they will be using touchscreen to play the game on mobile or tablet.
 
 <img src="assets/readme-images/question-area.jpg"><br>
 
@@ -78,6 +79,7 @@ To evaluate the website, the structure can be split into four sections:
 Noted for future development:
 
 - To include all 197 countries via an API
+- Ensure no flag is repeated twice in a row
 
 ## Testing
 <hr>
@@ -106,20 +108,11 @@ After development, the website has been tested on the following devices:
 - iPhone XS Max - Chrome and Safari
 
 <strong>HP EliteBook 840 G5 14" - using Google Device Toolbar</strong><br>
-<img src="assets/readme-images/google-device-toolbar.jpg">
+<img src="assets/readme-images/google-inspect.jpg"><br>
 <br>
 <br>
 <strong>iPhone XS Max</strong><br>
-<img src="assets/readme-images/iphone-xs-max.png">
-<br>
-
-Noted for future development:
-
-- On hover, the navbar button performs as expected, but there is a tiny zone where it transforms, however it does not change color as expected. It's not a major issue, other than a tiny annoyance
-- On iPhone XS Max, Safari, the header colour doesn't cover all of the top, there is a small bit of white spacing left exposed
-- On mobile, when scrolling back to the top, because of the 'bounce' effect, some of the background image is exposed without a black transparent layer over it
-- On iPhone XS Max, Safari, it appears the submission button adopts a different style to the default one which is seen on desktop
-
+<img src="assets/readme-images/iphone-xs-max.jpg"><br>
 <br>
 
 ### Validator Testing
@@ -129,10 +122,10 @@ The three websites used to validate the code are:
 
 - https://validator.w3.org/
 - https://jigsaw.w3.org/css-validator/
+- https://jshint.com/
 
 For accessibility, the following websites and extensions were used:
 
-- WCAG Contrast Checker
 - Lighthouse
 
 <br>
@@ -140,54 +133,27 @@ For accessibility, the following websites and extensions were used:
 #### HTML Validator
 <hr>
 Errors discovered:<br>
-<img src="assets/readme-images/html-markup-check.jpg">
-<img src="assets/readme-images/html-markup-check-2.jpg">
-<img src="assets/readme-images/html-markup-check-3.jpg"><br>
+<img src="assets/readme-images/html-errors.jpg"><br>
 
 <br>
 
-Additional error discovered after integrating the hamburger menu onto the navbar:
-<br>
-<img src="assets/readme-images/html-markup-check-after-2.jpg">
+- Two errors have been discovered: no src or alt attributes included in the img tag. However, the two attributes are updated through a function in the JS file which pulls information from the objects in the Flags array to populate the src and alt attributes. For example, see screenshot below.
 
-<br>
-
-Errors fixed:<br>
-<img src="assets/readme-images/html-markup-check-after.jpg">
-
-<br>
-
-- Whilst the errors - including the additional error regarding the hamburger menu - were able to be fixed, the warning still remains. In this instance, the quote section does not need no heading elements due to no hierarchy of importance. It is a standalone section which conveys only one message: the Founder's thoughts.
+<img src="assets/readme-images/html-errors-addressed.jpg"><br>
 
 <br>
 
 #### CSS Validator
-Website used to validate CSS code: https://jigsaw.w3.org/css-validator/
 <hr>
-Errors discovered:<br>
-<img src="assets/readme-images/css-markup-check.jpg">
-<img src="assets/readme-images/css-markup-check-2.jpg">
-
-Errors fixed:<br>
-<img src="assets/readme-images/css-markup-check-after.jpg"><br>
-
-- The latest version of the CSS stylesheet reported no errors
+No errors were reported.
 
 <br>
 
-#### WCAG Contrast Checker
+#### JS Validator
 <hr>
+Warnings were reported, but despite this, the game performs as expected.
 
-<img src="assets/readme-images/contrast-checker.jpg"><br>
-It's reported that there are four contrasting errors:
-
-- Two of the errors are located in the services section regarding Social Media Marketing. However, the image provided below show there is no visibility issue  and reading difficulty as there is a contrast between foreground and background colour
-
-<img src="assets/readme-images/contrast-checker-smm.jpg"><br>
-
-- The other two are located in the form section. The h2 and p element have a white foreground colour against a gradient background. The example below shows there are no issues with visibility 
-
-<img src="assets/readme-images/contrast-checker-form-text.jpg"><br>
+<img src="assets/readme-images/js-warnings.jpg"><br>
 
 <br>
 
@@ -196,13 +162,13 @@ It's reported that there are four contrasting errors:
 Lighthouse has reported extemely positive metrics (see graphic below) with scores ranging from 90 to 100. The results are:
 
 - Performance: 100
-- Accessibility: 97
+- Accessibility: 100
 - Best practises: 100
 - SEO: 90
 
-<img src="assets/readme-images/lighthouse-scores.jpg">
+<img src="assets/readme-images/lighthouse-scores.jpg"><br>
 <br>
-<br>
+
 
 ## Deployment
 <hr>
@@ -211,7 +177,7 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:
 - In the GitHub repository, navigate to the Settings tab
 - From the source section drop-down menu, select the Main Branch
 - Once the master branch has been selected, the page will be automatically refreshed with the word 'active' displayed in a green colour at the end of the sentence (next to last duration when published)
-The live link can be found here - https://lewis-worsley.github.io/digital-media-agency/
+The live link can be found here - https://lewis-worsley.github.io/fun-with-flags/
 
 <br>
 
@@ -221,27 +187,19 @@ The coding languages used:
 
 - HTML
 - CSS
+- JavaScript
 
 <br>
 
 ## Software
 <hr>
-The design for RISE Media was created via the Adobe Creative Cloud Suite; more specifically I used:
-
-- Abobe Photoshop
-- Adobe InDesign
-- Adobe Illustrator
-
-Through using these three tools, I was able to design the logo, create imagery, design the website, and compress web images by either reducing image size or quality via export.
+The images were resized to the same ratio in Adobe Photoshop.
 
 <br>
 
 ## Media
 <hr>
-The logo and icons for RISE Media was designed by myself, Lewis Worsley.
-<br><br>
-
-The background hero image of the office was found and saved via search on Google Images: https://www.linkedin.com/company/goodstuff-communications/. The original company logo was removed and replaced with the RISE Media logo via Adobe Photoshop.
+The country flags were sourced from Google images.
 
 <br>
 
@@ -254,28 +212,16 @@ To help bring this project to life, the following deserve recognition:
 ### Content
 <hr>
 
-The CSS code to transform the navbar button on hover was provided by https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateY
+The JS code to detect keypresses (1, 2, and 3) https://stackoverflow.com/questions/16089421/how-do-i-detect-keypresses-in-javascript
 
-- The CSS code to integrate the hamburger menu onto the navbar was provided by https://alvarotrigo.com/blog/hamburger-menu-css/#:~:text=What%20Is%20A%20Hamburger%20Menu,top%20of%20the%20main%20content > 1 Responsive CSS Hamburger Menu - CSS only
+- The JS code to add a waiting time between rounds in the game https://www.w3schools.com/jsref/met_win_settimeout.asp
 
-- The 3-colour-gradient for the brand was provided by https://mycolor.space/
-
-- The CSS structure for the hero section was inspired by the Code Institute's Coders Coffeehouse
-
-- The CSS code to achieve a gradient background was provided by https://www.w3schools.com/
-
-- To specify a minimum font-size for responsive design - especially for mobile - a user from Stack Overflow in a public open forum https://stackoverflow.com/questions/23984629/how-to-set-min-font-size-in-css provided CSS code to help achieve this
-
-- Change the color of the placeholder text of an input field was provided by https://www.w3schools.com/
-
-- Font pairing (Proza Libre and Open Sans) for RISE Media was inspired by https://www.fontpair.co/
-
-- Social media text icons located in the footer were sourced from https://fontawesome.com/
+- The JS code to increment player scores was inspired by the Code Institute's Love Maths game.
 
 <br>
 
 ### Thanks
 <hr>
 
-- Richard Wells
-    - His mentorship and time have been of utmost value to me progressing this project along. I showed my concept of RISE Media to Richard on our first call and he gave me the encouragement and belief that I could execute the design. His easy-going and laid-back persona reminds me of myself, which is why I feel our meetings have been valuable and fun. 
+- Dominic Paul (friend)
+    - His support and feedback was helpful because I was able to understand my mistakes so that I could correct them and build the game I had envisioned.
