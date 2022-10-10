@@ -93,5 +93,12 @@ p > .js-incorrect {
       .flag-area {
         width: 85%;
       }
-}
 
+      .mobile {
+        display: none;
+      }
+
+      button {
+        font-size: large;
+      }
+}
