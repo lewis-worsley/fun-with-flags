@@ -210,16 +210,17 @@ const flags = [
 
 document.addEventListener("DOMContentLoaded", function() {
     
-    console.log(flags);
     const displayFlag = document.querySelector(".js-flag-img");
     const firstOption = document.querySelector(".js-option1");
     const secondOption = document.querySelector(".js-option2");
     const thirdOption = document.querySelector(".js-option3");
+    const buttons = document.getElementsByClassName("btn")
     
     let playerCorrectScore = document.querySelector(".js-correct");
     let playerWrongScore = document.querySelector(".js-incorrect");
     let roundsPlayed = document.querySelector(".js-round-played");
     let currentCorrectAnswer = '';
+    let canPlay = true;
     
     const updateQuiz = function() {
 
@@ -246,7 +247,6 @@ document.addEventListener("DOMContentLoaded", function() {
         thirdOption.setAttribute('aria-label', `Option 3: ${flags[randomIndex].name}`);
 
         currentCorrectAnswer = flags[randomIndex].correctAnswer;
-        console.log(currentCorrectAnswer);
     };
 
     /**
@@ -260,11 +260,24 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     const incrementCorrectScore = function() {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Correct Answer!',
+            showConfirmButton: false,
+            timer: 1500
+          })
         playerCorrectScore.innerHTML = parseInt(playerCorrectScore.innerHTML) + 1;
     };
     
-    const incrementWrongScore = function(option) {
-        alert(`You selected ${option} which is wrong! The correct answer is ${currentCorrectAnswer}`);
+    const incrementWrongScore = function (option) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: `Wrong answer. The correct answer was ${currentCorrectAnswer}`,
+            showConfirmButton: false,
+            timer: 1500
+          })
         playerWrongScore.innerHTML = parseInt(playerWrongScore.innerHTML) + 1;
     };
 
@@ -289,7 +302,6 @@ document.addEventListener("DOMContentLoaded", function() {
             thirdOption.click();
             // Simulate click for option 3
         }
-        console.log(e.keyCode);
         
     };
 
@@ -299,14 +311,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     for (let button of buttons) {
         button.addEventListener("click", () => {
-            const = option = button.innerHTML
+            const option = button.innerHTML
 
             if (canPlay) {
                 canPlay = false
                 if (option === currentCorrectAnswer) {
                     button.style.backgroundColor = "green";
                     incrementCorrectScore();
-                    
+
                 } else {
                     button.style.backgroundColor = "red";
                     incrementWrongScore(option);
@@ -316,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     updateQuiz();
                     button.style.backgroundColor = "#D3D3D3"
                     incrementRound();
-                })
+                }, 1500)
             }
         })
     }
