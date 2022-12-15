@@ -256,6 +256,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     const incrementRound = function() {
         roundsPlayed.innerHTML = parseInt(roundsPlayed.innerHTML) + 1;
+        canPlay = true
     };
 
     const incrementCorrectScore = function() {
@@ -296,56 +297,81 @@ document.addEventListener("DOMContentLoaded", function() {
      * Event listeners for the buttons
      */
 
-    firstOption.addEventListener('click', function() {
-        const option = firstOption.innerHTML;
-        if (option === currentCorrectAnswer) {
-            firstOption.style.backgroundColor = "green";
-            incrementCorrectScore();
-            
-        } else {
-            firstOption.style.backgroundColor = "red";
-            incrementWrongScore(option);
-        }
+    for (let button of buttons) {
+        button.addEventListener("click", () => {
+            const = option = button.innerHTML
 
-        setTimeout( function() {
-            updateQuiz();
-            firstOption.style.backgroundColor = "#D3D3D3";
-            incrementRound();
-        }, 500);
+            if (canPlay) {
+                canPlay = false
+                if (option === currentCorrectAnswer) {
+                    button.style.backgroundColor = "green";
+                    incrementCorrectScore();
+                    
+                } else {
+                    button.style.backgroundColor = "red";
+                    incrementWrongScore(option);
+                }
+
+                setTimeout(function() {
+                    updateQuiz();
+                    button.style.backgroundColor = "#D3D3D3"
+                    incrementRound();
+                })
+            }
+        })
+    }
+
+
+    // firstOption.addEventListener('click', function() {
+    //     const option = firstOption.innerHTML;
+    //     if (option === currentCorrectAnswer) {
+    //         firstOption.style.backgroundColor = "green";
+    //         incrementCorrectScore();
+            
+    //     } else {
+    //         firstOption.style.backgroundColor = "red";
+    //         incrementWrongScore(option);
+    //     }
+
+    //     setTimeout( function() {
+    //         updateQuiz();
+    //         firstOption.style.backgroundColor = "#D3D3D3";
+    //         incrementRound();
+    //     }, 500);
        
-    });
+    // });
     
-    secondOption.addEventListener('click', function() {
-        const option = secondOption.innerHTML;
-        if (option === currentCorrectAnswer) {
-            secondOption.style.backgroundColor = "green";
-            incrementCorrectScore();
-        } else {
-            secondOption.style.backgroundColor = "red";
-            incrementWrongScore(option);
-        }
-        setTimeout( function() {
-            updateQuiz();
-            secondOption.style.backgroundColor = "#D3D3D3";
-            incrementRound();
-        }, 500);
-    });
+    // secondOption.addEventListener('click', function() {
+    //     const option = secondOption.innerHTML;
+    //     if (option === currentCorrectAnswer) {
+    //         secondOption.style.backgroundColor = "green";
+    //         incrementCorrectScore();
+    //     } else {
+    //         secondOption.style.backgroundColor = "red";
+    //         incrementWrongScore(option);
+    //     }
+    //     setTimeout( function() {
+    //         updateQuiz();
+    //         secondOption.style.backgroundColor = "#D3D3D3";
+    //         incrementRound();
+    //     }, 500);
+    // });
     
-    thirdOption.addEventListener('click', function() {
-        const option = thirdOption.innerHTML;
-        if (option === currentCorrectAnswer) {
-            thirdOption.style.backgroundColor = "green";
-            incrementCorrectScore();
-        } else {
-            thirdOption.style.backgroundColor = "red";
-            incrementWrongScore(option);
-        }
-        setTimeout( function() {
-            updateQuiz();
-            thirdOption.style.backgroundColor = "#D3D3D3";
-            incrementRound();
-        }, 500);
-    });
+    // thirdOption.addEventListener('click', function() {
+    //     const option = thirdOption.innerHTML;
+    //     if (option === currentCorrectAnswer) {
+    //         thirdOption.style.backgroundColor = "green";
+    //         incrementCorrectScore();
+    //     } else {
+    //         thirdOption.style.backgroundColor = "red";
+    //         incrementWrongScore(option);
+    //     }
+    //     setTimeout( function() {
+    //         updateQuiz();
+    //         thirdOption.style.backgroundColor = "#D3D3D3";
+    //         incrementRound();
+    //     }, 500);
+    // });
 
     updateQuiz();
 });
