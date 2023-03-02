@@ -237,6 +237,8 @@ To help bring this project to life, the following deserve recognition:
 
 - The JS code to increment player scores was inspired by the Code Institute's Love Maths game.
 
+- The JS script and code to update JavaScript popup boxes https://sweetalert2.github.io/
+
 <br>
 
 ### Thanks
@@ -244,3 +246,6 @@ To help bring this project to life, the following deserve recognition:
 
 - Dominic Paul (friend)
     - His support and feedback was helpful because I was able to understand my mistakes so that I could correct them and build the game I had envisioned.
+
+- Richard Wells (mentor)
+    - For providing guidance and advice on how I can solve the bug in the game.
