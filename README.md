@@ -87,6 +87,21 @@ Google Dev-tools was used for responsive design; to validate JavaScript concepts
 
 <br>
 
+### Bugs
+<hr>
+
+UPDATE: It was discovered there was a bug in the gameplay, where the user was able to click same answer multiple times before the next round began. This has since been resolved. Also, to improve gameplay and UX, I incorporated SweetAlert2 (https://sweetalert2.github.io/) into my project to replace the traditional JavaScript popup boxes.
+
+Correct answer with SweetAlert2
+
+<img src="assets/readme-images/correct-answer-with-sweetalert.jpg"><br>
+
+Wrong answer with SweetAlert2
+
+<img src="assets/readme-images/wrong-answer-with-sweetalert.jpg"><br>
+
+<br>
+
 ### Am I Responsive
 <hr>
 
